@@ -20,3 +20,9 @@ body {
     color: rgb(176, 228, 34);
     font-size: large;
 }
+
+.registerbtn {
+    color: rgb(187, 35, 247);
+    font-style: large;
+    margin-left: 100px;
+}

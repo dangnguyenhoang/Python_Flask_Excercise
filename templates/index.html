@@ -16,21 +16,24 @@
         <h1 class='title'>Student Information System</h1>
     </div>
     <br>
-    <div class='button'>
-        <input type="text" name="regnum" /> Reg_num</br>
-        <br>
-        <input type="text" name="name" /> Name</br>
-        <br>
-        <input type="text" name="email" /> Email</br>
-        <br>
-        <input type="text" name="dob" /> Birth</br>
-        <br>
-        <input type="text" name="hometown" /> Hometown</br>
-        <br>
-        <input type="text" name="score" /> Score</br>
-        <br>
-        <button type="submit" class="registerbtn">Submit Information</button>
-    </div>
+    <form action="{{ url_for('addrec') }}" method="POST">
+        <div class='button'>
+            Registration_number<br>
+            <input type="text" name="regnum" /></br>
+            Name<br>
+            <input type="text" name="name" /></br>
+            Email<br>
+            <input type="text" name="email" /></br>
+            Birth_date<br>
+            <input type="text" name="dob" /></br>
+            Hometown<br>
+            <input type="text" name="hometown" /></br>
+            Score<br>
+            <input type="text" name="score" /></br>
+            <br>
+            <input type="submit" class="registerbtn"></button>
+        </div>
+    </form>
 </body>
 
 
