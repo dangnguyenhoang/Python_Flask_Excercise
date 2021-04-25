@@ -8,7 +8,7 @@ import requests
 import sqlite3
 
 conn = sqlite3.connect('database.db')
-conn.execute('CREATE TABLE IF NOT EXISTS students (name TEXT, addr TEXT, city TEXT, pin TEXT)')
+conn.execute('CREATE TABLE IF NOT EXISTS students (regnum TEXT, Name_ TEXT, email TEXT, hometown TEXT, birth TEXT, score TEXT)')
 
 app=Flask(__name__)
 app.config['SECRET_KEY'] = 'C2HWGVoMGfNTBsrYQg8EcMrdTimkZfAb@'
