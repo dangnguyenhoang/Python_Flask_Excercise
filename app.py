@@ -9,7 +9,7 @@ import sqlite3 as sql
 
 conn = sql.connect('database.db')
 conn.execute('CREATE TABLE IF NOT EXISTS students (Regnum TEXT, Name_ TEXT, Email TEXT, Hometown TEXT, DoB TEXT, Score TEXT)')
-conn.close()
+
 
 app=Flask(__name__)
 app.config['SECRET_KEY'] = 'C2HWGVoMGfNTBsrYQg8EcMrdTimkZfAb@'
@@ -27,37 +27,37 @@ def addrec():
    if request.method == 'POST':
       try:
          Regnum= request.form['Regnum']
-         Name_ = request.form['Name']
+         Name_ = request.form['Name_']
          Email = request.form['Email']
          Hometown = request.form['Hometown']
+         DoB = request.form['DoB']
          Score = request.form['Score']
-         Score = request.form['DoB']
          
-         with sql.connect("database.db") as con:
-            cur = con.cursor()
+         with sql.connect("database.db") as conn:
+            cur = conn.cursor()
             cur.execute("INSERT INTO students (Regnum,Name_,Email,Hometown,DoB,Score) VALUES (?,?,?,?,?,?)",(Regnum,Name_,Email,Hometown,DoB,Score) )
             
-            con.commit()
+            conn.commit()
             msg = "Record successfully added"
       except:
-         con.rollback()
+         conn.rollback()
          msg = "error in insert operation"
       
       finally:
-         return render_template("result.html")
-         con.close()
+         return render_template("index.html")
+         conn.close()
 
 @app.route('/list')
 def list():
-   con = sql.connect("database.db")
-   con.row_factory = sql.Row
+   conn = sql.connect("database.db")
+   conn.row_factory = sql.Row
    
-   cur = con.cursor()
+   cur = conn.cursor()
    cur.execute("select * from students")
    
    rows = cur.fetchall(); 
    return render_template("List.html",rows = rows)
-   con.close()
+   conn.close()
 
 if __name__ == '__main__':
     app.run(debug=True)

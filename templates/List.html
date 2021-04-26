@@ -7,17 +7,17 @@
             <td>Regnumber</td>
             <td>Name_</td>
             <td>Email</td>
-            <td>Birthdate</td>
+            <td>DoB</td>
             <td>Hometown</td>
             <td>Score</td>
          </thead>
          
          {% for row in rows %}
             <tr>
-               <td>{{row["Name_"]}}</td>
                <td>{{row["Regnumber"]}}</td>
+               <td>{{row["Name_"]}}</td>
                <td> {{ row["Email"]}}</td>
-               <td>{{row['Birthdate']}}</td>
+               <td>{{row['DoB']}}</td>
                <td>{{row['Hometown']}}</td>	
                <td>{{row['Score']}}</td>	
             </tr>
